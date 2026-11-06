@@ -1,0 +1,830 @@
+/* =============================================================================
+   JobMarketDB — Premium Editorial SaaS Design System & CSS Foundation
+   Visual Identity: Warm Ivory, White Surface, Deep Charcoal, Deep Olive, Sage Green
+   ============================================================================= */
+
+/* Optional web font imports with robust local and system font fallbacks */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+/* Centralized CSS Design Tokens */
+:root {
+    /* Color Palette */
+    --canvas-ivory: #FAF8F5;
+    --surface-card: #FFFFFF;
+    --surface-warm: #F5F2EB;
+    --surface-warm-alt: #EFECE4;
+    --text-charcoal: #1C1F1D;
+    --text-secondary: #4A524D;
+    --text-muted: #737D76;
+    --deep-olive: #2E3A2D;
+    --deep-olive-hover: #222C21;
+    --deep-olive-light: rgba(46, 58, 45, 0.08);
+    --sage-green: #6E856C;
+    --sage-green-hover: #5A7058;
+    --muted-sage: #E8EDE7;
+    --subtle-border: #E2DDD5;
+    --border-strong: #C8C2B8;
+    --accent-terracotta: #B85D38;
+    --accent-amber: #C2884E;
+    --accent-slate: #516574;
+    --linkedin-blue: #0A66C2;
+    --indeed-blue: #2164F3;
+
+    /* Backward Compatibility Color Aliases (for prior Phase 6 modules) */
+    --bg-primary: #FAF8F5;
+    --bg-secondary: #FFFFFF;
+    --bg-tertiary: #F5F2EB;
+    --text-primary: #1C1F1D;
+    --border-color: #E2DDD5;
+    --border-light: rgba(46, 58, 45, 0.08);
+    --accent-blue: #2E3A2D;
+    --accent-green: #6E856C;
+    --accent-purple: #516574;
+
+    /* 8px-Based Modular Spacing Scale */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+
+    /* Typography Hierarchy & Safe Fallbacks */
+    --font-display: 'Newsreader', 'Charter', 'Playfair Display', 'Georgia', 'Cambria', serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, Monaco, 'Courier New', monospace;
+
+    /* Borders & Corner Radii */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-pill: 9999px;
+    --border-radius: 10px;
+
+    /* Restrained Subtle Shadows */
+    --shadow-subtle: 0 1px 3px rgba(28, 31, 29, 0.04), 0 1px 2px rgba(28, 31, 29, 0.02);
+    --shadow-card: 0 4px 12px rgba(28, 31, 29, 0.04), 0 1px 3px rgba(28, 31, 29, 0.02);
+    --shadow-card-hover: 0 8px 24px rgba(46, 58, 45, 0.08), 0 2px 6px rgba(46, 58, 45, 0.03);
+    --shadow-dropdown: 0 10px 25px rgba(28, 31, 29, 0.1), 0 4px 10px rgba(28, 31, 29, 0.05);
+
+    /* Transitions */
+    --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =============================================================================
+   1. Base Global Typography & Streamlit Canvas Overrides
+   ============================================================================= */
+
+html, body, [class*="css"] {
+    font-family: var(--font-sans);
+    color: var(--text-charcoal);
+    background-color: var(--canvas-ivory);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.stApp {
+    background-color: var(--canvas-ivory) !important;
+    color: var(--text-charcoal) !important;
+}
+
+code, pre, .font-mono {
+    font-family: var(--font-mono) !important;
+}
+
+/* Main Container Geometry */
+.block-container {
+    padding-top: 2rem !important;
+    padding-bottom: 3.5rem !important;
+    max-width: 1240px !important;
+}
+
+/* Heading Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-charcoal) !important;
+    font-family: var(--font-display) !important;
+    letter-spacing: -0.015em;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.25rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+h2 {
+    font-size: 1.55rem !important;
+    line-height: 1.3 !important;
+    color: var(--deep-olive) !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+}
+
+h3 {
+    font-size: 1.25rem !important;
+    line-height: 1.4 !important;
+    margin-top: 1.25rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+p, li, span, label {
+    font-family: var(--font-sans);
+    color: var(--text-charcoal);
+}
+
+/* =============================================================================
+   2. Refined Editorial Sidebar
+   ============================================================================= */
+
+[data-testid="stSidebar"] {
+    background-color: var(--surface-warm) !important;
+    border-right: 1px solid var(--subtle-border) !important;
+    box-shadow: var(--shadow-subtle);
+}
+
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3 {
+    font-family: var(--font-display) !important;
+    color: var(--deep-olive) !important;
+}
+
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] span {
+    color: var(--text-charcoal) !important;
+}
+
+[data-testid="stSidebarNavLink"] {
+    border-radius: var(--radius-sm) !important;
+    padding: 0.45rem 0.75rem !important;
+    margin-bottom: 0.15rem !important;
+    color: var(--text-secondary) !important;
+    font-family: var(--font-sans) !important;
+    font-weight: 500 !important;
+    font-size: 0.88rem !important;
+    transition: background-color var(--transition-fast), color var(--transition-fast) !important;
+}
+
+[data-testid="stSidebarNavLink"]:hover {
+    background-color: var(--muted-sage) !important;
+    color: var(--deep-olive) !important;
+}
+
+[data-testid="stSidebarNavLink"][aria-current="page"] {
+    background-color: var(--muted-sage) !important;
+    color: var(--deep-olive) !important;
+    font-weight: 700 !important;
+    border-left: 3px solid var(--deep-olive) !important;
+}
+
+/* =============================================================================
+   3. Unified Header Component & Badges
+   ============================================================================= */
+
+.jmdb-header-container {
+    padding: 1.5rem 0 1.25rem 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--subtle-border);
+}
+
+.jmdb-header-title {
+    font-family: var(--font-display) !important;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-charcoal);
+    letter-spacing: -0.02em;
+    margin: 0 0 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    line-height: 1.25;
+}
+
+.jmdb-header-subtitle {
+    font-family: var(--font-sans);
+    font-size: 1.02rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.55;
+    max-width: 880px;
+}
+
+/* Badges */
+.jmdb-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.22rem 0.65rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: var(--radius-pill);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+}
+
+.jmdb-badge-pill {
+    background-color: var(--muted-sage);
+    color: var(--deep-olive);
+    border: 1px solid #D5DDD4;
+}
+
+.jmdb-badge-linkedin {
+    background-color: var(--linkedin-blue);
+    color: #FFFFFF !important;
+    border: 1px solid #084e96;
+}
+
+.jmdb-badge-indeed {
+    background-color: var(--indeed-blue);
+    color: #FFFFFF !important;
+    border: 1px solid #104ec9;
+}
+
+.jmdb-badge-neutral {
+    background-color: var(--surface-warm);
+    color: var(--text-secondary) !important;
+    border: 1px solid var(--subtle-border);
+}
+
+/* =============================================================================
+   4. Metric Cards & KPI Displays
+   ============================================================================= */
+
+.jmdb-metric-card {
+    background-color: var(--surface-card);
+    border: 1px solid var(--subtle-border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.45rem;
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+    height: 100%;
+}
+
+.jmdb-metric-card:hover {
+    border-color: var(--sage-green);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.jmdb-metric-title {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.45rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.jmdb-metric-value {
+    font-family: var(--font-mono);
+    font-size: 1.95rem;
+    font-weight: 700;
+    color: var(--text-charcoal);
+    line-height: 1.1;
+    margin-bottom: 0.35rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+}
+
+.jmdb-metric-subtitle {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.jmdb-metric-delta-positive {
+    color: var(--sage-green);
+    font-weight: 600;
+}
+
+.jmdb-metric-delta-neutral {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Streamlit Native st.metric Restyling */
+[data-testid="stMetric"] {
+    background-color: var(--surface-card) !important;
+    border: 1px solid var(--subtle-border) !important;
+    border-radius: var(--radius-md) !important;
+    padding: 1.15rem 1.35rem !important;
+    box-shadow: var(--shadow-card) !important;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast) !important;
+}
+
+[data-testid="stMetric"]:hover {
+    border-color: var(--sage-green) !important;
+    box-shadow: var(--shadow-card-hover) !important;
+}
+
+[data-testid="stMetricValue"] {
+    color: var(--text-charcoal) !important;
+    font-family: var(--font-mono) !important;
+    font-weight: 700 !important;
+    font-size: 1.75rem !important;
+    font-variant-numeric: tabular-nums !important;
+}
+
+[data-testid="stMetricLabel"] {
+    color: var(--text-secondary) !important;
+    font-family: var(--font-sans) !important;
+    font-size: 0.78rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    font-weight: 600 !important;
+}
+
+/* =============================================================================
+   5. Callouts, Banners & Editorial Disclosures
+   ============================================================================= */
+
+.jmdb-callout {
+    padding: 1.15rem 1.35rem;
+    border-radius: var(--radius-md);
+    margin: 1.25rem 0;
+    border: 1px solid var(--subtle-border);
+    border-left: 4px solid var(--deep-olive) !important;
+    background-color: var(--surface-warm) !important;
+    box-shadow: var(--shadow-subtle);
+}
+
+.jmdb-callout-warning {
+    border-left-color: var(--accent-amber) !important;
+    background-color: #FDF9F3 !important;
+    border-color: #F0E4D4 !important;
+}
+
+.jmdb-callout-info {
+    border-left-color: var(--deep-olive) !important;
+    background-color: var(--surface-warm) !important;
+}
+
+.jmdb-callout-title {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    color: var(--deep-olive) !important;
+    margin-bottom: 0.35rem;
+    font-size: 0.96rem;
+    letter-spacing: -0.01em;
+}
+
+.jmdb-callout-warning .jmdb-callout-title {
+    color: #9A5A1B !important;
+}
+
+.jmdb-callout-text {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--text-charcoal) !important;
+    margin: 0;
+    line-height: 1.58;
+}
+
+/* Streamlit Native st.info, st.success, st.warning, st.error Restyling */
+[data-testid="stAlert"] {
+    border-radius: var(--radius-md) !important;
+    border: 1px solid var(--subtle-border) !important;
+    border-left-width: 4px !important;
+    box-shadow: var(--shadow-subtle) !important;
+    background-color: var(--surface-warm) !important;
+    color: var(--text-charcoal) !important;
+}
+
+/* =============================================================================
+   6. Accessible Editorial Tables
+   ============================================================================= */
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0.85rem 0 1.25rem 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--subtle-border);
+    box-shadow: var(--shadow-subtle);
+}
+
+th {
+    background-color: var(--surface-warm) !important;
+    color: var(--deep-olive) !important;
+    font-family: var(--font-sans) !important;
+    font-weight: 700 !important;
+    text-align: left;
+    padding: 0.75rem 1rem !important;
+    border-bottom: 2px solid var(--subtle-border) !important;
+    font-size: 0.86rem !important;
+    letter-spacing: 0.02em;
+}
+
+td {
+    background-color: var(--surface-card) !important;
+    color: var(--text-charcoal) !important;
+    padding: 0.65rem 1rem !important;
+    border-bottom: 1px solid var(--subtle-border) !important;
+    font-size: 0.86rem !important;
+    line-height: 1.45;
+}
+
+td strong, td b {
+    color: var(--text-charcoal) !important;
+    font-weight: 700 !important;
+}
+
+tr:last-child td {
+    border-bottom: none !important;
+}
+
+tr:hover td {
+    background-color: var(--canvas-ivory) !important;
+}
+
+/* Streamlit Dataframe Wrapper */
+[data-testid="stDataFrame"] {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--subtle-border);
+    box-shadow: var(--shadow-subtle);
+    background-color: var(--surface-card);
+}
+
+/* =============================================================================
+   7. Form Controls, Inputs, Buttons, & Interactive Elements
+   ============================================================================= */
+
+/* Buttons */
+.stButton > button {
+    background-color: var(--surface-card) !important;
+    color: var(--text-charcoal) !important;
+    border: 1px solid var(--subtle-border) !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 0.45rem 1rem !important;
+    font-family: var(--font-sans) !important;
+    font-weight: 600 !important;
+    font-size: 0.88rem !important;
+    box-shadow: var(--shadow-subtle) !important;
+    transition: all var(--transition-fast) !important;
+}
+
+.stButton > button:hover {
+    border-color: var(--deep-olive) !important;
+    color: var(--deep-olive) !important;
+    background-color: var(--surface-warm) !important;
+    box-shadow: var(--shadow-card) !important;
+}
+
+.stButton > button:focus {
+    outline: 2px solid var(--deep-olive) !important;
+    outline-offset: 1px !important;
+}
+
+/* Primary Button */
+.stButton > button[kind="primary"] {
+    background-color: var(--deep-olive) !important;
+    color: #FFFFFF !important;
+    border-color: var(--deep-olive) !important;
+}
+
+.stButton > button[kind="primary"]:hover {
+    background-color: var(--deep-olive-hover) !important;
+    color: #FFFFFF !important;
+    border-color: var(--deep-olive-hover) !important;
+}
+
+/* Text Inputs, Number Inputs, Selectboxes */
+input, select, textarea {
+    font-family: var(--font-sans) !important;
+    color: var(--text-charcoal) !important;
+}
+
+div[data-baseweb="input"] input,
+div[data-baseweb="base-input"] input {
+    background-color: #FFFFFF !important;
+    border-color: var(--subtle-border) !important;
+    color: var(--text-charcoal) !important;
+    border-radius: var(--radius-sm) !important;
+}
+
+div[data-baseweb="select"] > div {
+    background-color: #FFFFFF !important;
+    border-color: var(--subtle-border) !important;
+    color: var(--text-charcoal) !important;
+    border-radius: var(--radius-sm) !important;
+}
+
+/* Expanders */
+[data-testid="stExpander"] {
+    background-color: var(--surface-card) !important;
+    border: 1px solid var(--subtle-border) !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: var(--shadow-subtle) !important;
+    margin-bottom: 0.75rem !important;
+}
+
+/* Tabs */
+[data-baseweb="tab-list"] {
+    border-bottom: 1px solid var(--subtle-border) !important;
+    background-color: transparent !important;
+    gap: 0.75rem !important;
+}
+
+[data-baseweb="tab"] {
+    font-family: var(--font-sans) !important;
+    color: var(--text-secondary) !important;
+    font-weight: 500 !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0 !important;
+}
+
+[data-baseweb="tab"][aria-selected="true"] {
+    color: var(--deep-olive) !important;
+    font-weight: 700 !important;
+    border-bottom: 2.5px solid var(--deep-olive) !important;
+    background-color: transparent !important;
+}
+
+/* =============================================================================
+   8. Job Cards, Search & Editorial Content Containers
+   ============================================================================= */
+
+.jmdb-job-card {
+    background-color: var(--surface-card);
+    border: 1px solid var(--subtle-border);
+    border-radius: var(--radius-md);
+    padding: 1.35rem 1.6rem;
+    margin-bottom: 1.15rem;
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.jmdb-job-card:hover {
+    border-color: var(--sage-green);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.jmdb-job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.jmdb-job-title {
+    font-family: var(--font-display) !important;
+    font-size: 1.28rem;
+    font-weight: 700;
+    color: var(--text-charcoal) !important;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.jmdb-job-company {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.65rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.jmdb-job-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 0.75rem;
+    align-items: center;
+}
+
+.jmdb-meta-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.22rem 0.55rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.78rem;
+    font-weight: 500;
+    background-color: var(--surface-warm);
+    color: var(--text-secondary);
+    border: 1px solid var(--subtle-border);
+}
+
+.jmdb-meta-badge-salary {
+    background-color: var(--muted-sage);
+    color: var(--deep-olive);
+    border: 1px solid #D5DDD4;
+    font-weight: 600;
+    font-family: var(--font-mono);
+}
+
+.jmdb-meta-badge-remote {
+    background-color: #F0EFEA;
+    color: var(--deep-olive);
+    border: 1px solid var(--subtle-border);
+    font-weight: 500;
+}
+
+.jmdb-meta-badge-onsite {
+    background-color: #FDF4ED;
+    color: var(--accent-terracotta);
+    border: 1px solid #F4DDD0;
+}
+
+.jmdb-meta-badge-unspecified {
+    background-color: var(--surface-warm);
+    color: var(--text-muted);
+    border: 1px solid var(--subtle-border);
+}
+
+.jmdb-skill-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+}
+
+.jmdb-skill-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.16rem 0.55rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.74rem;
+    font-weight: 500;
+    background-color: var(--surface-warm);
+    color: var(--text-secondary);
+    border: 1px solid var(--subtle-border);
+}
+
+.jmdb-skill-chip-matched {
+    background-color: var(--muted-sage);
+    color: var(--deep-olive);
+    border: 1px solid var(--sage-green);
+    font-weight: 600;
+}
+
+/* Detail View */
+.jmdb-detail-header {
+    background-color: var(--surface-card);
+    border: 1px solid var(--subtle-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-card);
+}
+
+.jmdb-detail-desc {
+    background-color: var(--surface-warm);
+    border: 1px solid var(--subtle-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-charcoal);
+    font-size: 0.94rem;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+/* Related Jobs */
+.jmdb-related-card {
+    background-color: var(--surface-card);
+    border: 1px solid var(--subtle-border);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.85rem;
+    box-shadow: var(--shadow-subtle);
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.jmdb-related-card:hover {
+    border-color: var(--sage-green);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+}
+
+/* Empty State */
+.jmdb-empty-state {
+    text-align: center;
+    padding: 3.5rem 1.5rem;
+    background-color: var(--surface-card);
+    border: 1px dashed var(--border-strong);
+    border-radius: var(--radius-md);
+    margin: 1.5rem 0;
+    box-shadow: var(--shadow-subtle);
+}
+
+.jmdb-empty-icon {
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.jmdb-empty-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--deep-olive);
+    margin-bottom: 0.5rem;
+}
+
+.jmdb-empty-message {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.55;
+}
+
+/* Pagination Bar */
+.jmdb-pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--subtle-border);
+}
+
+.jmdb-pagination-info {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-family: var(--font-sans);
+}
+
+/* =============================================================================
+   9. Phase 7 Editorial Reusable Component Classes
+   ============================================================================= */
+
+.jmdb-editorial-header {
+    padding: 1.5rem 0 1.25rem 0;
+    margin-bottom: 1.75rem;
+    border-bottom: 1px solid var(--subtle-border);
+}
+
+.jmdb-editorial-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--sage-green);
+    margin-bottom: 0.35rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.jmdb-editorial-title {
+    font-family: var(--font-display) !important;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text-charcoal);
+    letter-spacing: -0.025em;
+    margin: 0 0 0.45rem 0;
+    line-height: 1.2;
+}
+
+.jmdb-editorial-subtitle {
+    font-family: var(--font-sans);
+    font-size: 1.02rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.55;
+}
+
+.jmdb-editorial-filter-bar {
+    background-color: var(--surface-warm);
+    border: 1px solid var(--subtle-border);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1rem;
+    margin: 0.75rem 0 1.25rem 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.jmdb-editorial-filter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-pill);
+    background-color: #FFFFFF;
+    border: 1px solid var(--subtle-border);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--deep-olive);
+    box-shadow: var(--shadow-subtle);
+}

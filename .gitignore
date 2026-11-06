@@ -1,0 +1,60 @@
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# Environment Variables & Secrets
+.env
+.env.*
+*.env
+atlas-credentials.env
+*credentials*
+!.env.example
+.streamlit/secrets.toml
+
+# Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Editor & IDE Configs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary Files, Logs & Scratch
+*.tmp
+*.temp
+*.log
+temp/
+tmp/
+scratch/
+.system_generated/
+
+# Datasets & Large Archives
+*.csv
+*.tsv
+*.xlsx
+*.parquet
+*.jsonl
+*.zip
+*.tar.gz
+*.7z
+archive/
+archive.zip
+indeed_job_dataset.csv/
+indeed_job_dataset.csv.zip
+data/
+datasets/
+raw_data/
